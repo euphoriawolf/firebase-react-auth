@@ -24,7 +24,7 @@ const byPropKey = (propertyName, value) => () => ({
 class SignUpForm extends Component {
   state = { ...initialState };
   onSubmit = event => {
-    const { username, email, passwordOne } = this.state;
+    const { email, passwordOne } = this.state;
     const { history } = this.props;
     auth
       .doCreateUserWithEmailAndPassword(email, passwordOne)

@@ -1,9 +1,19 @@
 import React from "react";
 
-const LandingPage = () => (
-  <div>
-    <h1> LandingPage </h1>
-  </div>
+import AuthUserContext from "./AuthUserContext";
+import { PasswordForgetForm } from "./PasswordForget";
+import PasswordChangeForm from "./PasswordChange";
+
+const AccountPage = () => (
+  <AuthUserContext.Consumer>
+    {authUser => (
+      <div>
+        <h1>Account: {authUser.email}</h1>
+        <PasswordForgetForm />
+        <PasswordChangeForm />
+      </div>
+    )}
+  </AuthUserContext.Consumer>
 );
 
-export default LandingPage;
+export default AccountPage;
