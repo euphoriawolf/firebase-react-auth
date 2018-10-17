@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navigation from './Navigation';
-import LandingPage from './Landing';
-import SignUpPage from './SignUp';
-import SignInPage from './SignIn';
-import PasswordForgetPage from './PasswordForget';
-import HomePage from './Home';
+import LandingPage from '../screens/Landing';
+import SignUpPage from '../screens/SignUp';
+import SignInPage from '../screens/SignIn';
+import PasswordForgetPage from '../screens/PasswordForget';
+import HomePage from '../screens/Home';
 import AccountPage from './Account';
 
 //h.o.c with Authentication

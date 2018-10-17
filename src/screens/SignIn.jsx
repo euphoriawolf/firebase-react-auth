@@ -17,10 +17,10 @@ const SignInPage = ({ history }) => (
 const initialState = {
   email: '',
   password: '',
-  error: null,
+  error: null
 };
 const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value,
+  [propertyName]: value
 });
 
 class SignInForm extends Component {
