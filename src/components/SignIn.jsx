@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import * as routes from "../constants/routes";
-import { auth } from "../firebase";
-import { PasswordForgetLink } from "./PasswordForget";
-import { SignUpLink } from "./SignUp";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import * as routes from '../constants/routes';
+import { auth } from '../firebase';
+import { PasswordForgetLink } from './PasswordForget';
+import { SignUpLink } from './SignUp';
 
 const SignInPage = ({ history }) => (
   <div>
@@ -15,12 +15,12 @@ const SignInPage = ({ history }) => (
 );
 
 const initialState = {
-  email: "",
-  password: "",
-  error: null
+  email: '',
+  password: '',
+  error: null,
 };
 const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value
+  [propertyName]: value,
 });
 
 class SignInForm extends Component {
@@ -35,19 +35,19 @@ class SignInForm extends Component {
         history.push(routes.home);
       })
       .catch(error => {
-        this.setState(byPropKey("error", error));
+        this.setState(byPropKey('error', error));
       });
     event.preventDefault();
   };
   render() {
     const { email, password, error } = this.state;
-    const isInvalid = email === "" || password === "";
+    const isInvalid = email === '' || password === '';
     return (
       <form onSubmit={this.onSubmit}>
         <input
           value={email}
           onChange={event =>
-            this.setState(byPropKey("email", event.target.value))
+            this.setState(byPropKey('email', event.target.value))
           }
           type="text"
           placeholder="email"
@@ -55,14 +55,14 @@ class SignInForm extends Component {
         <input
           value={password}
           onChange={event =>
-            this.setState(byPropKey("password", event.target.value))
+            this.setState(byPropKey('password', event.target.value))
           }
           type="password"
           placeholder="password"
         />
 
         <button disabled={isInvalid} type="submit">
-          {" "}
+          {' '}
           Sign In
         </button>
         {error && <p>{error.message}</p>}
