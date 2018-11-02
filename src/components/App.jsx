@@ -4,7 +4,7 @@ import Navigation from './containers/Navigation';
 import LandingPage from '../screens/Landing';
 import SignUpPage from '../screens/SignUp';
 import SignInPage from '../screens/SignIn';
-import PasswordForgetPage from '../screens/PasswordForget';
+import PasswordForgetPage from './containers/PasswordForget';
 import HomePage from '../screens/Home';
 import AccountPage from '../screens/Account';
 
