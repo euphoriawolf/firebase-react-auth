@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import { auth } from '../firebase';
+import { auth } from '../utils/firebase';
 
 const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value,
+  [propertyName]: value
 });
 
 const INITIAL_STATE = {
   passwordOne: '',
   passwordTwo: '',
-  error: null,
+  error: null
 };
 
 class PasswordChangeForm extends Component {

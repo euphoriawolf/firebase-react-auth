@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import * as routes from '../constants/routes';
-import { auth, db } from '../firebase';
+import { auth, db } from '../utils/firebase';
 
 const SignUpPage = ({ history }) => (
   <div>
@@ -15,10 +15,10 @@ const initialState = {
   email: '',
   passwordOne: '',
   passwordTwo: '',
-  error: null,
+  error: null
 };
 const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value,
+  [propertyName]: value
 });
 
 class SignUpForm extends Component {
