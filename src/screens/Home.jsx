@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import withAuthorization from '../components/withAuthorization';
+import withAuthorization from '../utils/withAuthorization';
 import { db } from '../firebase';
 
 class HomePage extends Component {

@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navigation from './Navigation';
+import Navigation from './containers/Navigation';
 import LandingPage from '../screens/Landing';
 import SignUpPage from '../screens/SignUp';
 import SignInPage from '../screens/SignIn';
 import PasswordForgetPage from '../screens/PasswordForget';
 import HomePage from '../screens/Home';
-import AccountPage from './Account';
+import AccountPage from '../screens/Account';
 
 //h.o.c with Authentication
-import withAuthentication from './withAuthentication';
+import withAuthentication from '../utils/withAuthentication';
 
 import * as routes from '../constants/routes';
 
