@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import withAuthorization from "./withAuthorization";
-import { db } from "../firebase";
+import withAuthorization from '../utils/withAuthorization';
+import { db } from '../utils/firebase';
 
 class HomePage extends Component {
   state = {
