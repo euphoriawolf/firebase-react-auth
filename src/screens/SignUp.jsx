@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import * as routes from "../constants/routes";
-import { auth, db } from "../firebase";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import * as routes from '../constants/routes';
+import { auth, db } from '../utils/firebase';
 
 const SignUpPage = ({ history }) => (
   <div>
@@ -11,10 +11,10 @@ const SignUpPage = ({ history }) => (
 );
 
 const initialState = {
-  username: "",
-  email: "",
-  passwordOne: "",
-  passwordTwo: "",
+  username: '',
+  email: '',
+  passwordOne: '',
+  passwordTwo: '',
   error: null
 };
 const byPropKey = (propertyName, value) => () => ({
@@ -36,11 +36,11 @@ class SignUpForm extends Component {
             history.push(routes.home);
           })
           .catch(error => {
-            this.setState(byPropKey("error", error));
+            this.setState(byPropKey('error', error));
           });
       })
       .catch(error => {
-        this.setState(byPropKey("error", error));
+        this.setState(byPropKey('error', error));
       });
     event.preventDefault();
   };
@@ -48,15 +48,15 @@ class SignUpForm extends Component {
     const { username, email, passwordOne, passwordTwo, error } = this.state;
     const isInvalid =
       passwordOne !== passwordTwo ||
-      passwordOne === "" ||
-      email === "" ||
-      username === "";
+      passwordOne === '' ||
+      email === '' ||
+      username === '';
     return (
       <form onSubmit={this.onSubmit}>
         <input
           value={username}
           onChange={event =>
-            this.setState(byPropKey("username", event.target.value))
+            this.setState(byPropKey('username', event.target.value))
           }
           type="text"
           placeholder="full name"
@@ -64,7 +64,7 @@ class SignUpForm extends Component {
         <input
           value={email}
           onChange={event =>
-            this.setState(byPropKey("email", event.target.value))
+            this.setState(byPropKey('email', event.target.value))
           }
           type="text"
           placeholder="email"
@@ -72,7 +72,7 @@ class SignUpForm extends Component {
         <input
           value={passwordOne}
           onChange={event =>
-            this.setState(byPropKey("passwordOne", event.target.value))
+            this.setState(byPropKey('passwordOne', event.target.value))
           }
           type="password"
           placeholder="password"
@@ -80,13 +80,13 @@ class SignUpForm extends Component {
         <input
           value={passwordTwo}
           onChange={event =>
-            this.setState(byPropKey("passwordTwo", event.target.value))
+            this.setState(byPropKey('passwordTwo', event.target.value))
           }
           type="password"
           placeholder="confirm password"
         />
         <button disabled={isInvalid} type="submit">
-          {" "}
+          {' '}
           Sign Up
         </button>
         {error && <p>{error.message}</p>}

@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { auth } from '../firebase';
+import { auth } from '../../utils/firebase';
 
-const PasswordForgetPage = () =>
+const PasswordForgetPage = () => (
   <div>
     <h1>PasswordForget</h1>
     <PasswordForgetForm />
   </div>
+);
 
 const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value,
+  [propertyName]: value
 });
 
 const INITIAL_STATE = {
   email: '',
-  error: null,
+  error: null
 };
 
 class PasswordForgetForm extends Component {
- 
-
   state = { ...INITIAL_STATE };
- 
-  onSubmit = (event) => {
+
+  onSubmit = event => {
     const { email } = this.state;
 
-    auth.doPasswordReset(email)
+    auth
+      .doPasswordReset(email)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
       })
@@ -35,13 +35,10 @@ class PasswordForgetForm extends Component {
       });
 
     event.preventDefault();
-  }
+  };
 
   render() {
-    const {
-      email,
-      error,
-    } = this.state;
+    const { email, error } = this.state;
 
     const isInvalid = email === '';
 
@@ -49,7 +46,9 @@ class PasswordForgetForm extends Component {
       <form onSubmit={this.onSubmit}>
         <input
           value={this.state.email}
-          onChange={event => this.setState(byPropKey('email', event.target.value))}
+          onChange={event =>
+            this.setState(byPropKey('email', event.target.value))
+          }
           type="text"
           placeholder="Email Address"
         />
@@ -57,20 +56,18 @@ class PasswordForgetForm extends Component {
           Reset My Password
         </button>
 
-        { error && <p>{error.message}</p> }
+        {error && <p>{error.message}</p>}
       </form>
     );
   }
 }
 
-const PasswordForgetLink = () =>
+const PasswordForgetLink = () => (
   <p>
     <Link to="/pw-forget">Forgot Password?</Link>
   </p>
+);
 
 export default PasswordForgetPage;
 
-export {
-  PasswordForgetForm,
-  PasswordForgetLink,
-};
+export { PasswordForgetForm, PasswordForgetLink };
